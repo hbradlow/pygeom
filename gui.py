@@ -11,12 +11,20 @@ class Point2D:
     def __repr__(self):
         return "<Point2D: " + str(self.position) + ">"
     def draw(self,canvas):
-        print self
         canvas.create_oval( self.position[0]-self.radius,
                             self.position[1]-self.radius,
                             self.position[0]+self.radius,
                             self.position[1]+self.radius,
                             fill=self.fill,outline=self.outline)
+
+class Line2D:
+    def __init__(self,start,end):
+        self.start = start
+        self.end = end
+    def __repr__(self):
+        return "<Line2D: " + str(self.start) + " -> " + str(self.end) + ">"
+    def draw(self,canvas):
+        canvas.create_line(self.start[0],self.start[1],self.end[0],self.end[1])
 
 class Visualizer:
     def __init__(self,root,width,height):
